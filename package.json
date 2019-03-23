@@ -1,0 +1,23 @@
+{
+  "name": "govtech-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeraldg/govtech-assessment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeraldg/govtech-assessment/issues"
+  },
+  "homepage": "https://github.com/jeraldg/govtech-assessment#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
