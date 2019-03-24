@@ -1,0 +1,17 @@
+[
+    {
+        "teacher": "teacherken@example.com",
+        "students": [
+            "commonstudent1@gmail.com",
+            "commonstudent2@gmail.com",
+            "student_only_under_teacher_ken@gmail.com"
+        ]
+    },
+    {
+        "teacher": "teacherjoe@example.com",
+        "students": [
+            "commonstudent1@gmail.com",
+            "commonstudent2@gmail.com"
+        ]
+    }
+]
