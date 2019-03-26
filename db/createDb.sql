@@ -1,11 +1,12 @@
-DROP DATABASE IF EXISTS govtech; 
+DROP DATABASE IF EXISTS govtech_assessment; 
 
-CREATE DATABASE IF NOT EXISTS govtech;
+CREATE DATABASE IF NOT EXISTS govtech_assessment;
 
-USE govtech;
+USE govtech_assessment;
 
 CREATE TABLE `students` (
   `email` varchar(255) NOT NULL,
+  `suspended` boolean DEFAULT false,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -22,10 +23,3 @@ CREATE TABLE `teacher_students` (
   CONSTRAINT `teacher_students_ibfk_1` FOREIGN KEY (`teacherEmail`) REFERENCES `teachers` (`email`),
   CONSTRAINT `teacher_students_ibfk_2` FOREIGN KEY (`studentEmail`) REFERENCES `students` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO students (email) VALUES ('commonstudent1@gmail.com');
-INSERT INTO students (email) VALUES ('commonstudent2@gmail.com');
-INSERT INTO students (email) VALUES ('student_only_under_teacher_ken@gmail.com');
-
-INSERT INTO teachers (email) VALUES ('teacherjoe@example.com');
-INSERT INTO teachers (email) VALUES ('teacherken@example.com');

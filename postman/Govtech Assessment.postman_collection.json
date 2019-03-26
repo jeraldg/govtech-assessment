@@ -1,0 +1,181 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Govtech Assessment",
+		"_postman_id": "1f8587e3-3ea3-422c-8e99-f1d6d641899e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Story 1",
+			"description": "As a teacher, I want to register one or more students to a specified teacher.",
+			"item": [
+				{
+					"name": "localhost:3000/api/register",
+					"request": {
+						"url": "localhost:3000/api/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"teacher\": \"teacherken@gmail.com\",\n  \"students\":\n    [\n      \"studentjon@example.com\",\n      \"studenthon@example.com\"\n    ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Story 2",
+			"description": "As a teacher, I want to retrieve a list of students common to a given list of teachers (i.e. retrieve students who are registered to ALL of the given teachers).",
+			"item": [
+				{
+					"name": "localhost:3000/api/commonstudents?teacher=teacherken%40example.com",
+					"request": {
+						"url": {
+							"raw": "localhost:3000/api/commonstudents?teacher=teacherken%40example.com",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"commonstudents"
+							],
+							"query": [
+								{
+									"key": "teacher",
+									"value": "teacherken%40example.com",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/api/commonstudents?teacher=teacherken%40example.com&teacher=teacherjoe%40example.com",
+					"request": {
+						"url": {
+							"raw": "localhost:3000/api/commonstudents?teacher=teacherken%40example.com&teacher=teacherjoe%40example.com",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"commonstudents"
+							],
+							"query": [
+								{
+									"key": "teacher",
+									"value": "teacherken%40example.com",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "teacher",
+									"value": "teacherjoe%40example.com",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Story 3",
+			"description": "As a teacher, I want to suspend a specified student.",
+			"item": [
+				{
+					"name": "localhost:3000/api/suspend",
+					"request": {
+						"url": "localhost:3000/api/suspend",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"student\": \"studentmary@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Story 4",
+			"description": "As a teacher, I want to retrieve a list of students who can receive a given notification.",
+			"item": [
+				{
+					"name": "localhost:3000/api/retrievefornotifications",
+					"request": {
+						"url": "localhost:3000/api/retrievefornotifications",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"teacher\":  \"teacherken@example.com\",\n  \"notification\": \"Hello students! @studentagnes@example.com @studentmiche@example.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/api/retrievefornotifications",
+					"request": {
+						"url": "localhost:3000/api/retrievefornotifications",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"teacher\":  \"teacherken@example.com\",\n  \"notification\": \"Hey everybody\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,10 +1,8 @@
-const mysql = require('mysql');
-
 module.exports = {
 
   registerStudentsToTeacher: (params) => {
     return new Promise((resolve, reject) => {
-      let query = "INSERT IGNORE INTO teacher_students (teacherEmail, studentEmail) VALUES (?,?)"; // query database to get all the players
+      let query = "INSERT INTO teacher_students (teacherEmail, studentEmail) VALUES (?,?)"; // query database to get all the players
 
       // execute query
       db.query(query, params, (err, result) => {
@@ -88,4 +86,25 @@ module.exports = {
     })
 
   },
+
+  getNonSuspendedStudentsFromTeachers: (params) => {
+    return new Promise((resolve, reject) => {
+
+      escapeQuery = '?';
+      for (i = 1; i < params.length; i++) {
+        escapeQuery += ',?';
+      }
+      params.push(params.length)
+
+      let query = "SELECT studentEmail, COUNT(*) c FROM `students` INNER JOIN `teacher_students` ON students.email = teacher_students.studentEmail WHERE teacherEmail IN (" + escapeQuery + ") AND suspended = False GROUP BY studentEmail HAVING c >= ?"; // query database to get all the players
+      // execute query
+      db.query(query, params, (err, result) => {
+        if (err) return reject(err);
+        return resolve(result);
+      });
+    })
+
+  },
+
+  
 };

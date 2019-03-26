@@ -1,19 +1,18 @@
 const mysql = require('mysql');
+const dotenv = require('dotenv');
+dotenv.config();
 
-db = mysql.createConnection({
-  host: 'localhost',
-  user: 'admin',
-  password: 'password',
-  database: 'govtech'
+const db = mysql.createConnection({
+  host: process.env.host,
+  user: process.env.user,
+  password: process.env.password,
+  database: 'govtech_assessment'
 });
 
-// connect to database
 db.connect((err) => {
   if (err) {
-    throw err;
+    throw "Mysql connection error";
   }
-  // console.log('Connected to database');
 });
-global.db = db;
 
-// exports.db = db;
+global.db = db;

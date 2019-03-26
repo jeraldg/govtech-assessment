@@ -1,0 +1,8 @@
+[
+    {
+        "teacher": "teacherken@example.com",
+        "students": [
+            "studentbob@example.com"
+        ]
+    }
+]
