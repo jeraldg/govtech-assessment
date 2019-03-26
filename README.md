@@ -16,7 +16,3 @@
 ### Postman collection
 
 - Postman collection file is located at `/postman`
-
-## Publicly hosted API
-
-- the API is hosted at 0.0.0.0
